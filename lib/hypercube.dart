@@ -16,8 +16,32 @@ class Hypercube extends StatefulWidget {
 }
 
 class _HypercubeState extends State<Hypercube> {
-
+  int dimension=4;
   bool isBuilt = false;
+  String? selectedValue;
+  String ? selectedFunction;
+  final List<String> values = ['0', '1', '2','3','4','5','6'];
+  final List<String> functions = ['hiperszescian','losowo'];
+
+  void generateStructure() {
+    
+    setState(() {
+    dimension = int.parse(selectedValue!);
+    isBuilt = false;
+    if(selectedFunction=='hiperszescian'){
+       generateProcessors(dimension, assignNeighboursForNDimensionalHypercube);
+    }
+    else{
+      generateProcessors(dimension, assignNeighboursOneByOne);
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        isBuilt = true;
+      });
+    });
+    
+    });
+  }
 
   @override
   void initState() {
@@ -47,7 +71,7 @@ class _HypercubeState extends State<Hypercube> {
           processor,
         ],
        
-         const Positioned(
+          Positioned(
           left: 700,
           top: 200,
            child: Column(
@@ -55,6 +79,44 @@ class _HypercubeState extends State<Hypercube> {
                GenerateOpinionButton(),
                ButtonToGenerateOpinionStructure(),
                ButtonToFindDamagedProcessors(),
+               DropdownButton<String>(
+                hint: Text('Wybierz wartość'),
+                value: selectedValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedValue = newValue;
+                  });
+                },
+                items: values.map((value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+
+              DropdownButton<String>(
+                hint: Text('Wybierz funkcję'),
+                value: selectedFunction,
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedFunction = newValue;
+                  });
+                },
+                items: functions.map((value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+
+              const SizedBox(height: 20),
+              ElevatedButton(
+
+                onPressed: (selectedValue == null || selectedFunction == null) ? null : generateStructure,
+                child: const Text('Generuj strukturę'),
+              )
             ],
                    ),
          ),

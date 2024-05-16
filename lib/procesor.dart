@@ -14,8 +14,8 @@ class Procesor extends StatefulWidget {
     super.key
     });
     final int name;
-    final double left;
-    final double top;
+    double left;
+    double top;
     final List<GlobalKey<ProcesorState>> neighbours = [];
     final List<GlobalKey<ProcesorState>> neighboursToDrawLine = [];
     bool damaged = false;
@@ -50,7 +50,8 @@ class ProcesorState extends State<Procesor> {
       child: GestureDetector(
         onTap: () {
           setState(() {
-            widget.damaged = true;
+            
+            widget.damaged = !widget.damaged; 
             damaged = !damaged;       
           });
         },
@@ -88,6 +89,8 @@ class ProcesorState extends State<Procesor> {
   void _updatePosition(DragUpdateDetails details) {
      top = max(0, top + details.delta.dy);
      left = max(0, left + details.delta.dx);
+     widget.top = top;
+     widget.left = left;
   }
 
 

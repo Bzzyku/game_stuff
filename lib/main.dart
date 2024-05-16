@@ -8,7 +8,7 @@ import 'package:game_stuff/list_view_of_opinion.dart';
 var rng = Random();
 
 void main() {
-  generateProcessors(16, 4);
+  generateProcessors(0, assignNeighboursForNDimensionalHypercube);
   runApp(
         MaterialApp( 
       debugShowCheckedModeBanner: false,

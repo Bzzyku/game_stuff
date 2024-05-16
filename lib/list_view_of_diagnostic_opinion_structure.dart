@@ -20,7 +20,7 @@ class ListViewOfDiagnosticOpinionStructure extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [SizedBox(
           height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width+ 20*comparativeSample.length,
+          width: MediaQuery.of(context).size.width+ 24*comparativeSample.length,
           child: ListView(
             children: [
               Row(
