@@ -9,7 +9,8 @@ List<Procesor>generateProcessors(int dimension ,void Function(int) function) {
   processors = [];
   processorsToGenerateStructure = [];
   if( dimension==0 ){
-    processors.add(Procesor(left: 100, top: 100, name: 0));
+    generateKeys(dimension);
+    processors.add(Procesor(left: 100, top: 100, name: 0, key: listOfGlobalKeys[dimension],));
     processorsToGenerateStructure.add(ProcessorToGenerateStructure(name: 0));
     return processors;
   }

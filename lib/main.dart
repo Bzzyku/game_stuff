@@ -19,8 +19,8 @@ void main() {
             bottom: const TabBar(
               tabs: [
                 Tab(child: Text('Struktura'),),
-                Tab(child: Text('Struktura opiniowania ')),
-                Tab(child: Text('Opinia'))
+                Tab(child: Text('Struktura opiniowania diagnostycznego ')),
+                Tab(child: Text('Opinia diagnostyczna'))
               ],
             ) ,),
           body:  const TabBarView(children: [

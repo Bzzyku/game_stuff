@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:gap/gap.dart';
 import 'package:game_stuff/button_to_find_damaged_processors.dart';
 import 'package:game_stuff/button_to_generate_opinion_structure.dart';
 import 'package:game_stuff/generate_keys.dart';
@@ -36,7 +36,10 @@ class _HypercubeState extends State<Hypercube> {
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
-        isBuilt = true;
+        if(dimension!=0){
+          isBuilt = true;
+        }
+        
       });
     });
     
@@ -77,10 +80,13 @@ class _HypercubeState extends State<Hypercube> {
            child: Column(
             children: [
                GenerateOpinionButton(),
+               Gap(5),
                ButtonToGenerateOpinionStructure(),
+               Gap(5),
                ButtonToFindDamagedProcessors(),
+               Gap(5),
                DropdownButton<String>(
-                hint: Text('Wybierz wartość'),
+                hint: Text('Wybierz n-wymiarowość'),
                 value: selectedValue,
                 onChanged: (newValue) {
                   setState(() {
@@ -96,7 +102,7 @@ class _HypercubeState extends State<Hypercube> {
               ),
 
               DropdownButton<String>(
-                hint: Text('Wybierz funkcję'),
+                hint: Text('Sposób generowania krawędzi'),
                 value: selectedFunction,
                 onChanged: (newValue) {
                   setState(() {

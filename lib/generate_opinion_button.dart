@@ -26,7 +26,7 @@ class _GenerateOpinionButtonState extends State<GenerateOpinionButton> {
         OpinionsMaped = mapVektorOfOpinions(opinions);
     
       }, 
-      child: const Text('Generuj opinie'));
+      child: const Text('Generuj opinie diagnostyczną'));
   }
 }
 void resetValues(){

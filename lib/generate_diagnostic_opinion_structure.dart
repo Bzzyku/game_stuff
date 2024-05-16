@@ -8,9 +8,7 @@ List<List<String>> vektorOfOpinions = [];
 void generateDiagnosticOpinionStructure(
     int nDiagnosability,
     int numberOfProcessors,
-    List<List<int>> comparativeSample,
-    List<List<String>> vektorOfOpinions,
-    List<List<int>> reliabilityStatus) {
+) {
   generateComparativeSample(numberOfProcessors, comparativeSample);
   List<int> indexes = makeIndexes(numberOfProcessors);
   List<int> reliabilityStatusTemp = List<int>.filled(numberOfProcessors, 0);

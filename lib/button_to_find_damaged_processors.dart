@@ -66,6 +66,7 @@ Widget findDamagedProcessors() {
     List<String> temp = [];
     List<String> temp2=[];
     List<List<String>> temp3 = [];
+    if(reliabilityStatusOfMatchedOpinions.isNotEmpty){
   for(var i=0;i<reliabilityStatusOfMatchedOpinions.length;i++){
     for(var j=0;j<reliabilityStatusOfMatchedOpinions[i].length;j++){
       if(reliabilityStatusOfMatchedOpinions[i][j]==1){
@@ -81,6 +82,11 @@ Widget findDamagedProcessors() {
     temp2.add(temp3[k].toString()); 
   }
   return temp2;
+  }
+  else{
+    temp2.add(' Nie zostałalub nie można  wygenerowanać opinii diagnostycznej i struktury opiniowania diagnostycznego przez brak lini transmiji w strukturze');
+    return temp2;
+  }
 }
 
 

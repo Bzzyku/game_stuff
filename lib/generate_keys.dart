@@ -6,8 +6,15 @@ List<GlobalKey<ProcesorState>> listOfGlobalKeysToGenerateStructure=[];
 void generateKeys(int numberOfKeys){
  listOfGlobalKeys=[];
  listOfGlobalKeysToGenerateStructure=[];
-  for(var i=0;i<numberOfKeys;i++){
+ if(numberOfKeys==0){
   listOfGlobalKeys.add(GlobalKey<ProcesorState>());
+ }
+ else
+ {
+  for(var i=0;i<numberOfKeys;i++){
+    listOfGlobalKeys.add(GlobalKey<ProcesorState>());
   }
+ }
+ 
 }
 

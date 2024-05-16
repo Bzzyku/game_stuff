@@ -22,13 +22,13 @@ class _ButtonToGenerateOpinionStructureState extends State<ButtonToGenerateOpini
     return ElevatedButton(
       onPressed: onPressed
       , 
-      child: const Text('Generuj strukture porównawczą opini diagnostycznych'));
+      child: const Text('Generuj strukture opiniowania diagnostycznego'));
   }
 
   void onPressed(){
      resetValues();
      countNumberOfDamagedProcessors();
-     generateDiagnosticOpinionStructure(numberOfDamagedProcessors, processorsToGenerateStructure.length, comparativeSample, vektorOfOpinions, reliabilityStatus);
+     generateDiagnosticOpinionStructure(numberOfDamagedProcessors, processorsToGenerateStructure.length);
      vektorOfOpinionsMaped = mapVektorOfOpinions(vektorOfOpinions);
      comparativeSampleMaped =  mapComparativeSample(comparativeSample);
      reliabilityStatusMaped = mapReliabilityStatus(reliabilityStatus);
